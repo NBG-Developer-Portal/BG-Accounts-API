@@ -1,0 +1,1052 @@
+{
+	"info": {
+		"_postman_id": "d5ce6530-c457-4ab4-bc5a-9bb663ecf470",
+		"name": "BG Accounts Sandbox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sandboxId\": \"{{sandbox-id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sandbox",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sandboxId\": \"{{sandbox-id}}\",\r\n    \"users\": [\r\n        {\r\n            \"userId\": \"userId\",\r\n            \"smsOtpMobileNumber\": \"69xxxxxxxx\",\r\n            \"retryCacheEntries\": [],\r\n            \"accounts\": [\r\n                {\r\n                    \"info\": {\r\n                        \"currency\": \"EUR\",\r\n                        \"iban\": \"GR3201106970000069774934603\",\r\n                        \"accountType\": \"Personal\",\r\n                        \"accountSubType\": \"Savings\",\r\n                        \"description\": \"This is a personal savings account\",\r\n                        \"alias\": \"Account Alias\",\r\n                        \"availableBalance\": 1120.67,\r\n                        \"ledgerBalance\": 1150.67,\r\n                        \"overdraftLimit\": 500.0\r\n                    },\r\n                    \"beneficiaries\": [\r\n                        {\r\n                            \"name\": \"FIRST BENEFICIARY\"\r\n                        },\r\n                        {\r\n                            \"name\": \"SECOND BENEFICIARY\"\r\n                        }\r\n                    ],\r\n                    \"transactions\": [\r\n                        {\r\n                            \"amount\": 50.0,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"valueDateTime\": \"2020-11-07T12:54:48.1125881+02:00\",\r\n                            \"bookingDateTime\": \"2020-11-07T12:54:48.1127298+02:00\",\r\n                            \"description\": \"Pay mobile bill\",\r\n                            \"accountingBalance\": 4330.65,\r\n                            \"relatedAccount\": \"GR0601100400000004001504283\",\r\n                            \"relatedName\": \"Nick X.\",\r\n                            \"transactionCode\": \"51\"\r\n                        },\r\n                        {\r\n                            \"amount\": 1000.0,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Credit\",\r\n                            \"valueDateTime\": \"2020-11-04T12:54:48.1134389+02:00\",\r\n                            \"bookingDateTime\": \"2020-11-04T12:54:48.113443+02:00\",\r\n                            \"description\": \"Payroll\",\r\n                            \"accountingBalance\": 4381.1,\r\n                            \"relatedAccount\": \"GR6901100400000004001516535\",\r\n                            \"relatedName\": \"Alice B.\",\r\n                            \"transactionCode\": \"68\"\r\n                        }\r\n                    ],\r\n                    \"standingOrders\": [\r\n                        {\r\n                            \"description\": \"My standing order\",\r\n                            \"frequency\": \"IntrvlMnthDay:01:01\",\r\n                            \"firstPaymentDate\": \"2020-01-01T00:00:00\",\r\n                            \"nextPaymentDate\": \"2020-12-01T00:00:00\",\r\n                            \"finalPaymentDate\": \"2020-12-01T00:00:00\",\r\n                            \"lastPaymentDate\": \"2020-10-01T00:00:00\",\r\n                            \"status\": \"Active\",\r\n                            \"amount\": 10.0\r\n                        }\r\n                    ],\r\n                    \"scheduledPayments\": [\r\n                        {\r\n                            \"description\": \"My scheduled payment\",\r\n                            \"executionDate\": \"2020-12-17T12:54:48.1110117+02:00\",\r\n                            \"amount\": 100.0,\r\n                            \"senderReference\": \"SNDREF-123\"\r\n                        }\r\n                    ]\r\n                }\r\n            ],\r\n            \"cards\": [\r\n                {\r\n                    \"info\": {\r\n                        \"number\": \"5472614840042036\",\r\n                        \"description\": \"MASTERCARD\",\r\n                        \"holderName\": \"HOLDER NAME\",\r\n                        \"expiration\": \"11/2024\",\r\n                        \"type\": \"Personal\",\r\n                        \"subType\": \"CreditCard\",\r\n                        \"availableBalance\": 2889.21,\r\n                        \"ledgerBalance\": 110.79,\r\n                        \"creditLimit\": 3000.0\r\n                    },\r\n                    \"transactions\": [\r\n                        {\r\n                            \"amount\": 72.0,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"valueDateTime\": \"2020-11-07T12:54:48.1163057+02:00\",\r\n                            \"bookingDateTime\": \"2020-11-07T12:54:48.1163104+02:00\",\r\n                            \"description\": \"Pay electricity bill\",\r\n                            \"accountingBalance\": 0.0\r\n                        },\r\n                        {\r\n                            \"amount\": 10.0,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"valueDateTime\": \"2020-11-04T12:54:48.1163496+02:00\",\r\n                            \"bookingDateTime\": \"2020-11-04T12:54:48.1163505+02:00\",\r\n                            \"description\": \"Food Take-Away\",\r\n                            \"accountingBalance\": 0.0\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"info\": {\r\n                        \"number\": \"5372816006598229\",\r\n                        \"description\": \"PREPAID MASTERCARD\",\r\n                        \"holderName\": \"HOLDER NAME\",\r\n                        \"expiration\": \"09/2025\",\r\n                        \"type\": \"Personal\",\r\n                        \"subType\": \"PrePaidCard\",\r\n                        \"availableBalance\": 40.56\r\n                    },\r\n                    \"transactions\": [\r\n                        {\r\n                            \"amount\": 4.0,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"valueDateTime\": \"2020-11-11T12:54:48.1172699+02:00\",\r\n                            \"bookingDateTime\": \"2020-11-11T12:54:48.1172735+02:00\",\r\n                            \"description\": \"Coffee\",\r\n                            \"accountingBalance\": 0.0\r\n                        },\r\n                        {\r\n                            \"amount\": 7.40,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"valueDateTime\": \"2020-11-09T12:54:48.1172747+02:00\",\r\n                            \"bookingDateTime\": \"2020-11-09T12:54:48.1172752+02:00\",\r\n                            \"description\": \"Food Take-Away\",\r\n                            \"accountingBalance\": 0.0\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "AccountAccess",
+			"item": [
+				{
+					"name": "Create Consent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "af22b69a-ccad-4bca-b330-5531f81caaea",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"if (data !== undefined){\r",
+									"    postman.setEnvironmentVariable(\"consent-id\", data.consentId)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Callback-Url",
+								"value": "{{callback-url}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"access\": {\r\n        \"accounts\": [],\r\n        \"balances\": [],\r\n        \"transactions\": [],\r\n        \"availableAccounts\": \"allAccounts\"\r\n    },\r\n    \"recurringIndicator\": false,\r\n    \"validUntil\": \"2021-12-31\",\r\n    \"frequencyPerDay\": 4,\r\n    \"combinedServiceIndicator\": false\r\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/consents",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"consents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Consent",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/consents/{{consent-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"consents",
+								"{{consent-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Consent Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandbox-id}}"
+							},
+							{
+								"key": "X-Request-ID",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"type": "text",
+								"value": "{{$randomIP}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/consents/{{consent-id}}/status",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"consents",
+								"{{consent-id}}",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Consent",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandbox-id}}"
+							},
+							{
+								"key": "X-Request-ID",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"type": "text",
+								"value": "{{$randomIP}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/consents/{{consent-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"consents",
+								"{{consent-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get Accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7cc93ef9-c76a-4d1c-8a04-0d7e42999b3b",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"if(data !== undefined)\r",
+									"    postman.setEnvironmentVariable(\"account-id\", data.accounts[0].resourceId)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-ID",
+								"value": "{{consent-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts?withBalance=true",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "withBalance",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "462b71a6-0c81-4a0c-80d5-0dc188ac0af0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-ID",
+								"value": "{{consent-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}?withBalance=true",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}"
+							],
+							"query": [
+								{
+									"key": "withBalance",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Balances",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbe6a3ac-2bc2-47dc-b137-5c175e8c7f8f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-ID",
+								"value": "{{consent-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/balances",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"balances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Transactions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5d19212b-fd66-451b-bd98-84a443c4e2a2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-ID",
+								"value": "{{consent-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/transactions?bookingStatus=booked",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "bookingStatus",
+									"value": "booked"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cards",
+			"item": [
+				{
+					"name": "Get Cards",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ce461b46-e14c-490d-a09d-15557e931ea4",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"if(data !== undefined)\r",
+									"    postman.setEnvironmentVariable(\"card-id\", data.cardAccounts[0].resourceId)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-ID",
+								"value": "{{consent-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/card-accounts",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"card-accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a25fa3d-4451-42da-a77c-5ccbb282cbac",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-ID",
+								"value": "{{consent-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/card-accounts/{{card-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"card-accounts",
+								"{{card-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Card Balances",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dbc8a47a-a7be-40af-8a46-e0abb0715593",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-ID",
+								"value": "{{consent-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/card-accounts/{{card-id}}/balances",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"card-accounts",
+								"{{card-id}}",
+								"balances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Card Transactions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7afe8441-8ef5-4022-aed7-fdc0a09f7030",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-ID",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "PSU-IP-Address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-ID",
+								"value": "{{consent-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/card-accounts/{{card-id}}/transactions?bookingStatus=booked",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"card-accounts",
+								"{{card-id}}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "bookingStatus",
+									"value": "booked"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "authUrl",
+				"value": "{{auth-url}}?consent_id={{consent-id}}",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "Accounts Sandbox",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "{{scope}}",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{client-secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{client-id}}",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "{{access-token-url}}",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "{{callback-url}}",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "authorization_code",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "93e3b9ea80b773980206772ec13c2aacca94abe6c6d49da7f0d633f5b10ddad2",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5f4fffea-53f8-445e-8f7c-62dbd8917c79",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "94d8e558-e6e7-48e2-aa62-663ee7e92f49",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
